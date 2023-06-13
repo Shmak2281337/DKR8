@@ -1,0 +1,513 @@
+object Main: TMain
+  Left = 1040
+  Height = 443
+  Top = 159
+  Width = 752
+  Caption = 'Square'
+  ClientHeight = 443
+  ClientWidth = 752
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  LCLVersion = '2.2.4.0'
+  object ComboBox: TComboBox
+    Left = 10
+    Height = 28
+    Top = 8
+    Width = 724
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ItemHeight = 20
+    Items.Strings = (
+      'Прямоугольника'
+      'Треугольника'
+      'Круга'
+      'Трапеции'
+    )
+    OnChange = ComboBoxChange
+    TabOrder = 0
+    Text = 'Вычислить площадь'
+  end
+  object LabelLength: TLabel
+    AnchorSideTop.Control = LabelRectangle
+    AnchorSideRight.Control = EditLength
+    Left = 333
+    Height = 28
+    Top = 91
+    Width = 69
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 43
+    BorderSpacing.Right = 18
+    Caption = 'ДЛИНА'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelRectangle: TLabel
+    AnchorSideTop.Control = ComboBox
+    Left = 256
+    Height = 31
+    Top = 48
+    Width = 221
+    Anchors = [akTop]
+    BorderSpacing.Top = 40
+    Caption = 'ПРЯМОУГОЛЬНИК'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -23
+    Font.Name = 'Segoe UI Black'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object EditLength: TEdit
+    AnchorSideTop.Control = LabelRectangle
+    Left = 420
+    Height = 28
+    Top = 91
+    Width = 103
+    Anchors = [akTop]
+    BorderSpacing.Top = 43
+    NumbersOnly = True
+    TabOrder = 1
+  end
+  object LabelSquareRectangle: TLabel
+    AnchorSideTop.Control = ButtonCalcRectangle
+    Left = 373
+    Height = 1
+    Top = 247
+    Width = 1
+    Anchors = [akTop]
+    BorderSpacing.Top = 37
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Name = 'Segoe UI Semibold'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelWidth: TLabel
+    AnchorSideTop.Control = LabelLength
+    AnchorSideRight.Control = EditWidth
+    Left = 333
+    Height = 28
+    Top = 160
+    Width = 87
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 69
+    BorderSpacing.Right = 8
+    Caption = 'ШИРИНА'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object EditWidth: TEdit
+    AnchorSideTop.Control = EditLength
+    Left = 428
+    Height = 28
+    Top = 157
+    Width = 95
+    Anchors = [akTop]
+    BorderSpacing.Top = 66
+    NumbersOnly = True
+    TabOrder = 2
+  end
+  object ButtonCalcRectangle: TButton
+    AnchorSideTop.Control = LabelWidth
+    Left = 285
+    Height = 31
+    Top = 210
+    Width = 214
+    Anchors = [akTop]
+    BorderSpacing.Top = 50
+    Caption = 'ВЫЧИСЛИТЬ'
+    OnClick = ButtonCalcRectangleClick
+    TabOrder = 3
+  end
+  object LabelTriangle: TLabel
+    AnchorSideTop.Control = ComboBox
+    Left = 286
+    Height = 31
+    Top = 48
+    Width = 174
+    Anchors = [akTop]
+    BorderSpacing.Top = 40
+    Caption = 'ТРЕУГОЛЬНИК'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -23
+    Font.Name = 'Segoe UI Black'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelFoundation: TLabel
+    AnchorSideTop.Control = LabelTriangle
+    AnchorSideRight.Control = EditFoundation
+    Left = 5
+    Height = 28
+    Top = 96
+    Width = 119
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 48
+    BorderSpacing.Right = 12
+    Caption = 'ОСНОВАНИЕ'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelHeight: TLabel
+    AnchorSideTop.Control = LabelFoundation
+    AnchorSideRight.Control = EditHeight
+    Left = 5
+    Height = 28
+    Top = 160
+    Width = 77
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 64
+    BorderSpacing.Right = 54
+    Caption = 'ВЫСОТА'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object EditFoundation: TEdit
+    AnchorSideTop.Control = LabelTriangle
+    Left = 136
+    Height = 28
+    Top = 96
+    Width = 116
+    Anchors = [akTop]
+    BorderSpacing.Top = 48
+    NumbersOnly = True
+    TabOrder = 4
+  end
+  object EditHeight: TEdit
+    AnchorSideTop.Control = EditFoundation
+    Left = 136
+    Height = 28
+    Top = 160
+    Width = 116
+    Anchors = [akTop]
+    BorderSpacing.Top = 64
+    NumbersOnly = True
+    TabOrder = 5
+  end
+  object LabelSquareTriangle: TLabel
+    AnchorSideTop.Control = ButtonCalcTriangle
+    Left = 383
+    Height = 1
+    Top = 233
+    Width = 1
+    Anchors = [akTop]
+    BorderSpacing.Top = 40
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Name = 'Segoe UI Semibold'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelSides: TLabel
+    AnchorSideTop.Control = LabelTriangle
+    AnchorSideRight.Control = EditSide1
+    Left = 534
+    Height = 28
+    Top = 87
+    Width = 93
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 39
+    BorderSpacing.Right = 7
+    Caption = 'СТОРОНЫ'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object EditSide1: TEdit
+    AnchorSideTop.Control = LabelTriangle
+    Left = 634
+    Height = 28
+    Top = 77
+    Width = 108
+    Anchors = [akTop]
+    BorderSpacing.Top = 29
+    NumbersOnly = True
+    TabOrder = 6
+  end
+  object EditSide2: TEdit
+    AnchorSideTop.Control = EditSide1
+    Left = 634
+    Height = 28
+    Top = 109
+    Width = 108
+    Anchors = [akTop]
+    BorderSpacing.Top = 32
+    NumbersOnly = True
+    TabOrder = 7
+  end
+  object LabelAngle: TLabel
+    AnchorSideTop.Control = EditSide2
+    AnchorSideRight.Control = EditAngle
+    Left = 534
+    Height = 28
+    Top = 160
+    Width = 48
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 51
+    BorderSpacing.Right = 52
+    Caption = 'УГОЛ'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object EditAngle: TEdit
+    AnchorSideTop.Control = EditSide2
+    Left = 634
+    Height = 28
+    Top = 160
+    Width = 108
+    Anchors = [akTop]
+    BorderSpacing.Top = 51
+    NumbersOnly = True
+    TabOrder = 8
+  end
+  object ButtonCalcTriangle: TButton
+    AnchorSideTop.Control = LabelTriangle
+    Left = 285
+    Height = 31
+    Top = 193
+    Width = 182
+    Anchors = [akTop]
+    BorderSpacing.Top = 145
+    Caption = 'ВЫЧИСЛИТЬ'
+    OnClick = ButtonCalcTriangleClick
+    TabOrder = 9
+  end
+  object LabelCircle: TLabel
+    AnchorSideTop.Control = ComboBox
+    Left = 333
+    Height = 31
+    Top = 48
+    Width = 58
+    Anchors = [akTop]
+    BorderSpacing.Top = 40
+    Caption = 'КРУГ'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -23
+    Font.Name = 'Segoe UI Black'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object RadiusLabel: TLabel
+    AnchorSideTop.Control = LabelCircle
+    AnchorSideRight.Control = RadiusEdit
+    Left = 333
+    Height = 28
+    Top = 91
+    Width = 76
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 43
+    BorderSpacing.Right = 11
+    Caption = 'РАДИУС'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object RadiusEdit: TEdit
+    AnchorSideTop.Control = LabelCircle
+    Left = 420
+    Height = 28
+    Top = 91
+    Width = 103
+    Anchors = [akTop]
+    BorderSpacing.Top = 43
+    NumbersOnly = True
+    TabOrder = 10
+  end
+  object ButtonCircle: TButton
+    AnchorSideTop.Control = RadiusLabel
+    Left = 248
+    Height = 31
+    Top = 134
+    Width = 200
+    Anchors = [akTop]
+    BorderSpacing.Top = 43
+    Caption = 'ВЫЧИСЛИТЬ'
+    OnClick = ButtonCircleClick
+    TabOrder = 11
+  end
+  object LabelSquareCircle: TLabel
+    AnchorSideTop.Control = LabelCircle
+    Left = 383
+    Height = 1
+    Top = 168
+    Width = 1
+    Anchors = [akTop]
+    BorderSpacing.Top = 120
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Name = 'Segoe UI Semibold'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelTrapezium: TLabel
+    AnchorSideTop.Control = ComboBox
+    Left = 304
+    Height = 31
+    Top = 48
+    Width = 133
+    Anchors = [akTop]
+    BorderSpacing.Top = 40
+    Caption = 'ТРАПЕЦИЯ'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -23
+    Font.Name = 'Segoe UI Black'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelLine: TLabel
+    AnchorSideTop.Control = LabelTrapezium
+    AnchorSideRight.Control = LineEdit
+    Left = 305
+    Height = 28
+    Top = 91
+    Width = 159
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 43
+    BorderSpacing.Right = 16
+    Caption = 'СРЕДНЯЯ ЛИНИЯ'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelHeight1: TLabel
+    AnchorSideTop.Control = LabelLine
+    AnchorSideRight.Control = HeightEdit
+    Left = 305
+    Height = 28
+    Top = 128
+    Width = 77
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 37
+    BorderSpacing.Right = 98
+    Caption = 'ВЫСОТА'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object LineEdit: TEdit
+    AnchorSideTop.Control = LabelTrapezium
+    Left = 480
+    Height = 28
+    Top = 91
+    Width = 156
+    Anchors = [akTop]
+    BorderSpacing.Top = 43
+    NumbersOnly = True
+    TabOrder = 12
+  end
+  object HeightEdit: TEdit
+    AnchorSideTop.Control = LineEdit
+    Left = 480
+    Height = 28
+    Top = 134
+    Width = 156
+    Anchors = [akTop]
+    BorderSpacing.Top = 43
+    NumbersOnly = True
+    TabOrder = 13
+  end
+  object LabelSquareTrapeze: TLabel
+    AnchorSideTop.Control = ButtonTrap
+    Left = 435
+    Height = 1
+    Top = 209
+    Width = 1
+    Anchors = [akTop]
+    BorderSpacing.Top = 38
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Name = 'Segoe UI Semibold'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object ButtonTrap: TButton
+    AnchorSideTop.Control = HeightEdit
+    Left = 333
+    Height = 31
+    Top = 171
+    Width = 184
+    Anchors = [akTop]
+    BorderSpacing.Top = 37
+    Caption = 'ВЫЧИСЛИТЬ'
+    OnClick = ButtonTrapClick
+    TabOrder = 14
+  end
+  object Select1: TRadioButton
+    AnchorSideTop.Control = LabelHeight
+    Left = 5
+    Height = 24
+    Top = 200
+    Width = 88
+    Anchors = [akTop]
+    BorderSpacing.Top = 40
+    Caption = 'Способ 1'
+    OnChange = Select1Change
+    TabOrder = 16
+  end
+  object Select2: TRadioButton
+    AnchorSideTop.Control = LabelAngle
+    Left = 654
+    Height = 24
+    Top = 200
+    Width = 88
+    Anchors = [akTop]
+    BorderSpacing.Top = 40
+    Caption = 'Способ 2'
+    OnChange = Select2Change
+    TabOrder = 15
+  end
+end
